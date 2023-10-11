@@ -90,6 +90,24 @@
 
 <script src="assets/js/app.js"></script>
 
+
+
+
+
+<!-- plugin for full calendar js -->
+<script src="assets/libs/moment/min/moment.min.js"></script>
+<script src="assets/libs/jquery-ui-dist/jquery-ui.min.js"></script>
+<script src="assets/libs/@fullcalendar/core/main.min.js"></script>
+<script src="assets/libs/@fullcalendar/bootstrap/main.min.js"></script>
+<script src="assets/libs/@fullcalendar/daygrid/main.min.js"></script>
+<script src="assets/libs/@fullcalendar/timegrid/main.min.js"></script>
+<script src="assets/libs/@fullcalendar/interaction/main.min.js"></script>
+
+<!-- Calendar init -->
+<script src="assets/js/pages/calendar.init.js"></script>
+
+
+
 </body>
 
 </html>

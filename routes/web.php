@@ -22,5 +22,9 @@ Route::get("/listings/{id}", function ($id) {
 });
 
 Route::get("/dashboard", function () {
-    return view("listings");
+    return view("dashboard");
+});
+
+Route::get("/calendar", function () {
+    return view("calendar");
 });

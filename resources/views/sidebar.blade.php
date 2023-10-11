@@ -10,14 +10,14 @@
                 <li class="menu-title">Main</li>
 
                 <li>
-                    <a href="index.html" class="waves-effect">
+                    <a href="/dashboard" class="waves-effect">
                         <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">2</span>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="calendar.html" class=" waves-effect">
+                    <a href="/calendar" class=" waves-effect">
                         <i class="ti-calendar"></i>
                         <span>Calendar</span>
                     </a>
