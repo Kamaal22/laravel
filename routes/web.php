@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
 /*
@@ -28,3 +29,9 @@ Route::get("/dashboard", function () {
 Route::get("/calendar", function () {
     return view("calendar");
 });
+
+
+Route::get("login", [LoginController::class, 'index']);
+
+
+Route::post('loginverify', [LoginController::class, 'verify']);

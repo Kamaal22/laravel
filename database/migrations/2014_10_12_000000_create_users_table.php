@@ -15,12 +15,18 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
+            $table->string('fullname', 100);
+            $table->string('username', 25)->unique();
+            $table->text('password');
+            $table->string('phone', 100);
+            $table->string('email', 525)->unique();
+            $table->longText('addtional_info');
+            $table->enum('role', ['admin', 'manager']);
+            $table->longText('special_permissions');
+            $table->longText('log');
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
+            $table->timestamp('deleted_at')->nullable();
         });
     }
 
