@@ -20,10 +20,10 @@ return new class extends Migration
             $table->text('password');
             $table->string('phone', 100);
             $table->string('email', 525)->unique();
-            $table->longText('addtional_info');
+            $table->longText('addtional_info')->nullable();
             $table->enum('role', ['admin', 'manager']);
-            $table->longText('special_permissions');
-            $table->longText('log');
+            $table->longText('special_permissions')->nullable();
+            $table->longText('log')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
             $table->timestamp('deleted_at')->nullable();

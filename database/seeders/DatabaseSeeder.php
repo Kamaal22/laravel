@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,5 +22,36 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        User::create([
+            'fullname' => 'Abdi Farah Warsame',
+            'username' => 'abdifw',
+            'password' => Hash::make('passcode'),
+            'phone' => '1234567890',
+            'email' => 'abdi@imt.com',
+            'role' => 'admin',
+            'special_permissions' => '["create", "read", "update", "delete" ]',
+
+        ]);
+        User::create([
+            'fullname' => "Jama' Mohamed K'naan",
+            'username' => 'jama_knaan',
+            'password' => Hash::make('passcode'),
+            'phone' => '4536728958',
+            'email' => 'jama77@imt.com',
+            'role' => 'manager',
+            'special_permissions' => '["create","read"]',
+
+        ]);
+        User::create([
+            'fullname' => "Wehliye Ahmed Jama",
+            'username' => 'wehliye',
+            'password' => Hash::make('passcode'),
+            'phone' => '6437289348',
+            'email' => 'wehliye90@imt.com',
+            'role' => 'employee',
+            'special_permissions' => '["read"]',
+
+        ]);
     }
 }

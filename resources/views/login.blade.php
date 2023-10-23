@@ -35,13 +35,17 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 col-xl-4">
                     <div class="card overflow-hidden">
-                        <div class="bg-success">
+                        <div class="bg-primary">
                             <div class="text-primary text-center p-4">
                                 <h5 class="text-white font-size-20">Welcome Back !</h5>
-                                <p class="text-white-50">Sign in to continue to Veltrix.</p>
-                                <a href="index.html" class="logo logo-admin">
-                                    <img src="assets/images/logo-sm.png" height="24" alt="logo">
-                                </a>
+                                <p class="text-white-50">Sign in to continue to MS.</p>
+
+                                @if (Session::get('status'))
+                                    <div class="alert alert-success">{{ Session::get('success') }}</div>
+                                @endif
+                                @if (Session::get('fail'))
+                                    <div class="alert alert-danger">{{ Session::get('fail') }}</div>
+                                @endif
                             </div>
                         </div>
 
@@ -50,12 +54,12 @@
                                 <form class="mt-4" action="loginverify" method="post">
                                     @csrf
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="username"
+                                        <input type="text" class="form-control" name="username"
                                             placeholder="Enter username">
                                     </div>
 
                                     <div class="mb-3">
-                                        <input type="password" class="form-control" id="userpassword"
+                                        <input type="password" class="form-control" name="password"
                                             placeholder="Enter password">
                                     </div>
 
