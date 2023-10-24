@@ -3,7 +3,6 @@
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,15 +16,6 @@ use App\Models\Listing;
 
 Route::get('/', [IndexController::class, "index"]);
 
-
-Route::get("/listings/{id}", function ($id) {
-    return view("listing", ["listing" => Listing::find($id)]);
-});
-
-Route::get("/dashboard", function () {
-    return view("dashboard");
-});
-
 Route::get("/calendar", function () {
     return view("calendar");
 });
@@ -35,3 +25,13 @@ Route::get("login", [LoginController::class, 'index']);
 
 
 Route::post('loginverify', [LoginController::class, 'verify']);
+
+Route::middleware(['checkSession'])->group(function () {
+    Route::get("/dashboard", function () {
+        return view("dashboard");
+    });
+});
+
+
+Route::group(['middleware', 'CheckSession'], function () {
+});

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('phone', 100);
             $table->string('email', 525)->unique();
             $table->longText('addtional_info')->nullable();
-            $table->enum('role', ['admin', 'manager']);
+            $table->enum('role', ['admin', 'manager', 'employee', 'customer']);
             $table->longText('special_permissions')->nullable();
             $table->longText('log')->nullable();
             $table->timestamp('created_at')->useCurrent();

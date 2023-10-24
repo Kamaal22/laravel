@@ -24,13 +24,23 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         User::create([
+            'fullname' => 'Admin Ad_min MinAd',
+            'username' => 'admin',
+            'password' => 'admin',
+            'phone' => '1234567890',
+            'email' => 'admin@imt.com',
+            'role' => 'admin',
+            'special_permissions' => '["create", "read", "update", "delete" ]'
+
+        ]);
+        User::create([
             'fullname' => 'Abdi Farah Warsame',
             'username' => 'abdifw',
             'password' => Hash::make('passcode'),
             'phone' => '1234567890',
             'email' => 'abdi@imt.com',
             'role' => 'admin',
-            'special_permissions' => '["create", "read", "update", "delete" ]',
+            'special_permissions' => '["create", "read", "update", "delete" ]'
 
         ]);
         User::create([
@@ -40,7 +50,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '4536728958',
             'email' => 'jama77@imt.com',
             'role' => 'manager',
-            'special_permissions' => '["create","read"]',
+            'special_permissions' => '["create","read","update"]'
 
         ]);
         User::create([
@@ -50,8 +60,7 @@ class DatabaseSeeder extends Seeder
             'phone' => '6437289348',
             'email' => 'wehliye90@imt.com',
             'role' => 'employee',
-            'special_permissions' => '["read"]',
-
+            'special_permissions' => '["create","read"]'
         ]);
     }
 }
