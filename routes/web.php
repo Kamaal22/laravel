@@ -16,22 +16,31 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, "index"]);
 
-Route::get("/calendar", function () {
-    return view("calendar");
-});
 
 
 Route::get("login", [LoginController::class, 'index']);
 
-
-Route::post('loginverify', [LoginController::class, 'verify']);
-
-Route::middleware(['checkSession'])->group(function () {
-    Route::get("/dashboard", function () {
-        return view("dashboard");
-    });
+Route::get("register", function () {
+    return view("register");
 });
 
 
+Route::post('loginverify', [LoginController::class, 'verify']);
+
+// Route::middleware(['checkSession'])->group(function () {
+//     Route::get("/dashboard", function () {
+//         return view("dashboard");
+//     });
+// });
+
+
 Route::group(['middleware', 'CheckSession'], function () {
+    Route::get("/calendar", function () {
+        return view("calendar");
+    });
+
+    Route::get("/dashboard", function () {
+        return view("dashboard");
+    });
+    Route::get("logout", [LoginController::class, "logout"]);
 });

@@ -34,10 +34,13 @@ class LoginController extends Controller
 
             // Store user information in the session
             Session::put('user_id', $user->id);
-            return redirect('dashboard')->with('success', 'Login successful');
+            return redirect('login')->with('success', 'Login successful');
         } else {
             return redirect('login')->with('fail', 'Invalid username or password');
         }
+
+
+
         // $user = new User();
 
         // // $user->username = request('username');
@@ -52,5 +55,11 @@ class LoginController extends Controller
         // } else {
         //     return redirect('dashboard')->with('success', 'Login successful');
         // }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
     }
 }

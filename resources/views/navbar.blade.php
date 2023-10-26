@@ -246,8 +246,8 @@
                                     class="mdi mdi-lock-open-outline font-size-17 align-middle me-1"></i> Lock
                                 screen</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="#"><i
-                                    class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i> Logout</a>
+
+                            <a class="dropdown-item text-danger" href="logout"><i {{-- class="bx bx-power-off font-size-17 align-middle me-1 text-danger"></i> --}} Logout </a>
                         </div>
                     </div>
 
