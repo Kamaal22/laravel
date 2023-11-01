@@ -14,6 +14,6 @@ class IndexController extends Controller
         // } else {
         //     return view("login");
         // }
-        return view("index");
+        return view("layout.index");
     }
 }

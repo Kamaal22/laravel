@@ -1,8 +1,13 @@
 <?php
 
-use App\Http\Controllers\IndexController;
-use App\Http\Controllers\LoginController;
+// use App\Http\Middleware\CheckSession;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+// use App\Http\Controllers\LoginController;
+// use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ForgotPasswordController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,29 +23,34 @@ Route::get('/', [IndexController::class, "index"]);
 
 
 
-Route::get("login", [LoginController::class, 'index']);
+Route::get("login", [UserController::class, 'showLogin']);
 
-Route::get("register", function () {
-    return view("register");
-});
-
-
-Route::post('loginverify', [LoginController::class, 'verify']);
-
-// Route::middleware(['checkSession'])->group(function () {
-//     Route::get("/dashboard", function () {
-//         return view("dashboard");
-//     });
-// });
+Route::post('loginverify', [UserController::class, 'verify']);
+Route::get('forgot-password', [ForgotPasswordController::class, 'index'])->name('forgot-password');
 
 
-Route::group(['middleware', 'CheckSession'], function () {
-    Route::get("/calendar", function () {
+Route::post('send-otp', [ForgotPasswordController::class, 'sendOTP'])->name('forgot-password.otp');
+// 
+// 
+//
+Route::middleware(['check.session'])->group(function () {
+    Route::get("calendar", function () {
         return view("calendar");
     });
 
-    Route::get("/dashboard", function () {
+    Route::get("dashboard", function () {
         return view("dashboard");
     });
-    Route::get("logout", [LoginController::class, "logout"]);
+
+    Route::get("logout", [UserController::class, "logout"]);
+
+    Route::get("register", [UserController::class, "showRegister"]);
+    Route::post("createuser", [UserController::class, "createUser"]);
+
+    Route::get("list", [UserController::class, "userList"]);
+});
+
+// check is route exists or not, if not then redirect to 404 page
+Route::fallback(function () {
+    return view("404");
 });

@@ -1,4 +1,4 @@
-@include('sidebar')
+@include('layout.sidebar')
 
 <!-- ========== Left Sidebar Start ========== -->
 
@@ -22,4 +22,4 @@
     </div>
     <!-- End Page-content -->
 
-    @include('footer')
+    @include('layout.footer')

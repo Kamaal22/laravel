@@ -1,4 +1,4 @@
-@include('navbar')
+@include('layout.navbar')
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
@@ -10,19 +10,20 @@
                 <li class="menu-title">Main</li>
 
                 <li>
-                    <a href="/dashboard" class="waves-effect">
+                    <a href="dashboard" class="waves-effect">
                         <i class="ti-home"></i><span class="badge rounded-pill bg-primary float-end">2</span>
                         <span>Dashboard</span>
                     </a>
                 </li>
 
-                <li>
-                    <a href="/calendar" class=" waves-effect">
-                        <i class="ti-calendar"></i>
-                        <span>Calendar</span>
-                    </a>
-                </li>
-
+                @can('isAdmin')
+                    <li>
+                        <a href="calendar" class=" waves-effect">
+                            <i class="ti-calendar"></i>
+                            <span>Calendar</span>
+                        </a>
+                    </li>
+                @endcan
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ti-email"></i>
@@ -65,6 +66,19 @@
                         <li><a href="ui-rating.html">Rating</a></li>
                     </ul>
                 </li>
+                @can('isAdmin')
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect">
+                            <i class="ti-user"></i>
+                            <span>Users</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="register">&#9866; Create User</a></li>
+                            <li><a href="list">&#9866; List of Users</a></li>
+                        </ul>
+                    </li>
+                @endcan
+
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">

@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Register</title>
+    <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description">
     <meta content="Themesbrand" name="author">
@@ -29,22 +29,29 @@
 
 <body>
 
-    @if (Session::get('status'))
-        <div class="alert alert-success">{{ Session::get('success') }}</div>
-    @endif
-    @if (Session::get('fail'))
-        <div class="alert alert-danger">{{ Session::get('fail') }}</div>
-    @endif
-    <div class="account-pages my-5 pt-5">
+    <div class="container mt-5 mb-1 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6 col-xl-4">
+                @if (Session::get('success'))
+                    <div class="alert alert-success text-center rounded-0">{{ Session::get('success') }}</div>
+                @endif
+                @if (Session::get('fail'))
+                    <div class="alert alert-danger text-center rounded-0">{{ Session::get('fail') }}</div>
+                @endif
+            </div>
+        </div>
+    </div>
+
+
+    <div class="account-pages ">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-6">
+                <div class="col-md-8 col-lg-6 col-xl-4">
                     <div class="card overflow-hidden">
                         <div class="bg-success">
                             <div class="text-primary text-center p-4">
                                 <h5 class="text-white font-size-20">Welcome Back !</h5>
                                 <p class="text-white-50">Sign in to continue to MS.</p>
-
 
                             </div>
                         </div>
@@ -53,40 +60,15 @@
                             <div class="p-3">
                                 <form class="mt-4" action="loginverify" method="post">
                                     @csrf
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" name="fullname"
-                                            placeholder="Enter Your Full Name">
-                                    </div>
 
                                     <div class="mb-3">
                                         <input type="text" class="form-control" name="username"
                                             placeholder="Enter username">
                                     </div>
 
-
                                     <div class="mb-3">
                                         <input type="password" class="form-control" name="password"
                                             placeholder="Enter password">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" name="phonenumber"
-                                            placeholder="Enter Phone Number">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" name="email"
-                                            placeholder="Enter Email">
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea type="text" class="form-control" name="email" placeholder="Enter Additional Info"></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <select name="role" class="form-control" id="role">
-                                            <option value="">Select Role</option>
-                                            <option value="admin"></option>
-                                            <option value="manager"></option>
-                                            <option value="cashier"></option>
-                                            <option value="employee"></option>
-                                        </select>
                                     </div>
 
                                     <div class="mb-3 row">
@@ -99,7 +81,7 @@
                                     </div>
 
                                     <div class="mt-3 row text-center">
-                                        <a href="#" class="text-success">Forgot your
+                                        <a href="forgot-password" class="text-success">Forgot your
                                             password?</a>
                                     </div>
 
