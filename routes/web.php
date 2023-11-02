@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 // use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Jobs\SlowJobs;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +35,9 @@ Route::post('send-otp', [ForgotPasswordController::class, 'sendOTP'])->name('for
 // 
 //
 Route::middleware(['check.session'])->group(function () {
+
+    SlowJobs::dispatch();
+
     Route::get("calendar", function () {
         return view("calendar");
     });
